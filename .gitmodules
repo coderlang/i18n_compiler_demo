@@ -4,3 +4,15 @@
 [submodule "android/submodules/i18n_language_demo"]
 	path = android/submodules/i18n_language_demo
 	url = https://github.com/coderlang/i18n_language_demo.git
+[submodule "ios/submodules/i18n_compiler"]
+	path = ios/submodules/i18n_compiler
+	url = https://github.com/coderlang/i18n_compiler.git
+[submodule "ios/submodules/i18n_language_demo"]
+	path = ios/submodules/i18n_language_demo
+	url = https://github.com/coderlang/i18n_language_demo.git
+[submodule "web/submodules/i18n_language_demo"]
+	path = web/submodules/i18n_language_demo
+	url = https://github.com/coderlang/i18n_language_demo.git
+[submodule "web/submodules/i18n_compiler"]
+	path = web/submodules/i18n_compiler
+	url = https://github.com/coderlang/i18n_compiler.git
