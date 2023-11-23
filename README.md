@@ -17,7 +17,10 @@ git submodule add https://github.com/coderlang/i18n_compiler.git submodules/i18n
 git config --global submodule.recurse true
 ```
 
-### 编译多语言命令
+### 准备编译多语言脚本
+
+格式： ./i18n_compiler platform input output
+
 [android](android) [init_i18n.sh](android%2Finit_i18n.sh) 命令
 ```shell
 #!/bin/sh
@@ -46,27 +49,31 @@ git config --global submodule.recurse true
 root="$(pwd)" && cd submodules/i18n_compiler/bin && ./i18n_compiler web "$root/submodules/i18n_language_demo/i18n.csv" "$root/i18n/assets" && cd - || exit;
 ```
 
-### 流程（Android 演示）
+### 流程演示
 
 1. 产品运营负责维护多语言仓库 [i18n_language_demo.git](https://github.com/coderlang/i18n_language_demo) ，excel 编辑，导出 csv，提交版本；
+```shell
+产品运营@i18n_language % git commit -m "描述" 
+产品运营@i18n_language % git push 
+```
 
 2. 多语言更新了，则告诉开发 git pull 代码，开发在 [i18n_compiler_demo.git](https://github.com/coderlang/i18n_compiler_demo.git) 执行 git pull， 则可以同步更新 submodules/i18n_language_demo 等子模块。
 
 ```shell
-coderlang@android % git pull
+开发同学@android % git pull
 Fetching submodule android/submodules/i18n_compiler
 Fetching submodule android/submodules/i18n_language_demo
 
 ## git pull 完毕，执行 init_i18n.sh 初始化多语言
 
-coderlang@android % ls
+开发同学@android % ls
 init_i18n.sh submodules
 
-coderlang@android % ./init_i18n.sh
+开发同学@android % ./init_i18n.sh
 
-##  res 就是Android 需要的多语言文件
+##  assets 就是android 平台编译出来的多语言文件
 
-coderlang@android % ls
-init_i18n.sh res          submodules
+开发同学@android % ls
+init_i18n.sh assets submodules
 
 ```
